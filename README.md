@@ -1,4 +1,4 @@
-# Fork [https://github.com/qoobaa/fakturama](fakturamy) dla Bistro Złota Jura
+# Fork [fakturamy](https://github.com/qoobaa/fakturama) dla Bistro Złota Jura
 
 Adres: [https://s3.baraniecki.eu/fakturama/](https://s3.baraniecki.eu/fakturama/)
 
