@@ -125,7 +125,7 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-6 {{if errors.seller.firstObject "has-error"}}">
+    <div class="col-sm-4 {{if errors.seller.firstObject "has-error"}}">
       <label class="control-label" for="invoice-seller">
         Sprzedawca
       </label>
@@ -136,7 +136,7 @@
         value=(mut (get model 'seller'))}}
     </div>
 
-    <div class="col-sm-6 {{if errors.buyer.firstObject "has-error"}}">
+    <div class="col-sm-4 {{if errors.buyer.firstObject "has-error"}}">
       <div class="dropdown" style="display: inline;">
         <label data-toggle="dropdown" class="control-label" for="invoice-buyer">
           Nabywca <span class="caret"></span>
@@ -161,6 +161,14 @@
       <span class="help-block" style="display: inline;">{{errors.buyer.firstObject}}</span>
       {{textarea id="invoice-buyer" class="form-control" rows="5"
         value=(mut (get model 'buyer'))}}
+    </div>
+
+    <div class="col-sm-4">
+      <label class="control-label" for="invoice-seller">
+        Odbiorca
+      </label>
+      {{textarea id="invoice-recipient" class="form-control" rows="5"
+        value=(mut (get model 'recipient'))}}
     </div>
   </div>
 
@@ -298,6 +306,7 @@
     </div>
   </div>
 
+
   <div class="form-group">
     <div class="col-sm-12">
       <div class="dropdown" style="display: inline;">
@@ -324,12 +333,23 @@
     </div>
   </div>
 
+  <div class="form-group">
+    <div class="col-sm-9 col-sm-offset-3">
+      <div class="checkbox">
+        <label>
+          {{input type="checkbox" checked=paidWithCash click=(action "checkPaidWithCash")}}
+          Zapłacono gotówką
+        </label>
+      </div>
+    </div>
+  </div>
+
   <div class="form-group {{if errors.accountBankName.firstObject 'has-error'}}">
     <label for="invoice-account-bank-name" class="col-sm-3 control-label">
       Nazwa banku
     </label>
     <div class="col-sm-3">
-      {{input id="invoice-account-bank-name" class="form-control"
+      {{input id="invoice-account-bank-name" class="form-control" disabled=paidWithCash
         value=(mut (get model 'accountBankName'))}}
     </div>
     <div class="col-sm-6">
@@ -344,7 +364,7 @@
       SWIFT
     </label>
     <div class="col-sm-3">
-      {{input id="invoice-account-swift" class="form-control"
+      {{input id="invoice-account-swift" class="form-control" disabled=paidWithCash
         value=(mut (get model 'accountSwift'))}}
     </div>
     <div class="col-sm-6">
@@ -359,7 +379,7 @@
       Numer rachunku
     </label>
     <div class="col-sm-3">
-      {{input id="invoice-account-number" class="form-control"
+      {{input id="invoice-account-number" class="form-control" disabled=paidWithCash
         value=(mut (get model 'accountNumber'))}}
     </div>
     <div class="col-sm-6">

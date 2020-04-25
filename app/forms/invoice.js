@@ -91,12 +91,14 @@ export default ObjectProxy.extend(
     deliveryDate: oneWay('model.deliveryDate'),
     seller: oneWay('model.seller'),
     buyer: oneWay('model.buyer'),
+    recipient: oneWay('model.recipient'),
     currencyCode: oneWay('model.currencyCode'),
     languageCode: oneWay('model.languageCode'),
     accountBankName: oneWay('model.accountBankName'),
     accountSwift: oneWay('model.accountSwift'),
     accountNumber: oneWay('model.accountNumber'),
     isPaid: oneWay('model.isPaid'),
+    paidWithCash: oneWay('model.paidWithCash'),
 
     items: computed(
       'model.itemsAttributes',

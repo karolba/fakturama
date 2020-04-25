@@ -42,7 +42,16 @@ export default Controller.extend(EditController, {
       this.get('model').setProperties({
         accountBankName: account.get('bankName'),
         accountSwift: account.get('swift'),
-        accountNumber: account.get('number')
+        accountNumber: account.get('number'),
+        paidWithCash: false
+      });
+      this.set('paidWithCash', false);
+    },
+    checkPaidWithCash(what) {
+      this.get('model').setProperties({
+        accountBankName: '',
+        accountSwift: '',
+        accountNumber: ''
       });
     }
   }

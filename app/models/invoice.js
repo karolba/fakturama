@@ -11,6 +11,7 @@ export default Model.extend(InvoicePropertiesMixin, {
   dueDate: attr('string'),
   seller: attr('string'),
   buyer: attr('string'),
+  recipient: attr('string'),
   currencyCode: attr('string'),
   languageCode: attr('string'),
   comment: attr('string'),
@@ -22,5 +23,6 @@ export default Model.extend(InvoicePropertiesMixin, {
   accountBankName: attr('string'),
   accountSwift: attr('string'),
   accountNumber: attr('string'),
-  isPaid: attr('boolean')
+  isPaid: attr('boolean'),
+  paidWithCash: attr('boolean')
 });

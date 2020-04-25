@@ -29,6 +29,19 @@ export default Mixin.create({
       .slice(1);
   }),
 
+  recipientFirstLine: computed('recipient', function() {
+    return this.getWithDefault('recipient', '').split('\n')[0];
+  }),
+
+  hasRecipient: computed('recipient', function() {
+    return this.getWithDefault('recipient', '').match(/[^ \n\t\r]/) != null;
+  }),
+
+  recipientRest: computed('recipient', function() {
+    return this.getWithDefault('recipient', '')
+      .split('\n')
+      .slice(1);
+  }),
   commentLines: computed('comment', function() {
     return this.getWithDefault('comment', '').split('\n');
   }),

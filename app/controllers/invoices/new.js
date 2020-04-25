@@ -78,7 +78,16 @@ export default Controller.extend(NewController, {
       this.get('model').setProperties({
         accountBankName: account.get('bankName'),
         accountSwift: account.get('swift'),
-        accountNumber: account.get('number')
+        accountNumber: account.get('number'),
+        paidWithCash: false
+      });
+      this.set('paidWithCash', false);
+    },
+    checkPaidWithCash() {
+      this.get('model').setProperties({
+        accountBankName: '',
+        accountSwift: '',
+        accountNumber: ''
       });
     }
   }
