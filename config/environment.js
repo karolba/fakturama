@@ -5,8 +5,8 @@ module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'fakturama',
     environment,
-    rootURL: '/',
-    locationType: 'auto',
+    rootURL: '/fakturama/',
+    locationType: 'hash',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -69,12 +69,13 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.APP.FIREBASE = {
-      apiKey: 'AIzaSyDYHmwCeXtn6Nlj51XqUwR6KbJmw97Wo3A',
-      authDomain: 'fakturama-production-61b9a.firebaseapp.com',
-      databaseURL: 'https://fakturama-production-61b9a.firebaseio.com',
-      projectId: 'fakturama-production-61b9a',
-      storageBucket: 'fakturama-production-61b9a.appspot.com',
-      messagingSenderId: '54449445025'
+      apiKey: 'AIzaSyBHmYWwYUmeSpuUJfDLLzmSMqd-Eleze88',
+      authDomain: 'fakturama-fork.firebaseapp.com',
+      databaseURL: 'https://fakturama-fork.firebaseio.com',
+      projectId: 'fakturama-fork',
+      storageBucket: 'fakturama-fork.appspot.com',
+      messagingSenderId: '183059500058',
+      appId: '1:183059500058:web:ac46fd95d63191f6ee55a3'
     };
   }
 

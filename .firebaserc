@@ -1,6 +1,6 @@
 {
   "projects": {
     "staging": "fakturama-staging",
-    "production": "fakturama-production-61b9a"
+    "production": "fakturama-fork"
   }
 }
