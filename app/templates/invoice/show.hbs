@@ -85,6 +85,27 @@
       {{/each}}
     </p>
   </div>
+
+  {{#if model.hasRecipient}}
+  <div class="col-xs-6">
+  </div>
+  <div class="col-xs-6">
+    <h4>
+      <strong>
+        Odbiorca
+        {{#if model.isEnglish}}
+          / Recipient
+        {{/if}}
+      </strong>
+    </h4>
+    <p>
+      <strong>{{model.recipientFirstLine}}</strong><br>
+      {{#each model.recipientRest as |line|}}
+        {{line}}<br>
+      {{/each}}
+    </p>
+  </div>
+  {{/if}}
 </div>
 
 <br>
@@ -274,33 +295,47 @@
   </div>
 </div>
 
-{{#if model.accountNumber}}
-  <div class="row">
-    <div class="col-xs-12">
-      <h4>
-        <strong>
-          Płatność
-          {{#if model.isEnglish}}
-            / Payment
+    {{#if model.accountNumber}}
+      <div class="row">
+        <div class="col-xs-12">
+          <h4>
+            <strong>
+              Płatność
+              {{#if model.isEnglish}}
+                / Payment
+              {{/if}}
+            </strong>
+          </h4>
+          {{#if model.accountBankName}}
+            <p>
+              <strong>{{model.accountBankName}}</strong>
+            </p>
           {{/if}}
-        </strong>
-      </h4>
-      {{#if model.accountBankName}}
-        <p>
-          <strong>{{model.accountBankName}}</strong>
-        </p>
-      {{/if}}
-      {{#if model.accountSwift}}
-        <p>
-          SWIFT: <strong>{{model.accountSwift}}</strong>
-        </p>
-      {{/if}}
-      <p>
-        IBAN: <strong>{{model.accountNumber}}</strong>
-      </p>
-    </div>
-  </div>
-{{/if}}
+          {{#if model.accountSwift}}
+            <p>
+              SWIFT: <strong>{{model.accountSwift}}</strong>
+            </p>
+          {{/if}}
+          <p>
+            IBAN: <strong>{{model.accountNumber}}</strong>
+          </p>
+        </div>
+      </div>
+      {{else}}
+      <div class="row">
+        <div class="col-xs-12">
+          <h4>
+            <strong>
+              Płatność
+              {{#if model.isEnglish}}
+                / Payment
+              {{/if}}
+            </strong>
+          </h4>
+            <p>Zapłacono gotówką</p>
+        </div>
+      </div>
+    {{/if}}
 
 {{#if model.comment}}
   <div class="row">
@@ -326,7 +361,6 @@
 
 <div class="row">
   <div class="col-xs-6">
-    {{#if model.sellerSignature}}
       <p class="text-center signature">{{model.sellerSignature}}</p>
       <p>
         Podpis wystawiającego
